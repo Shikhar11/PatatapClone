@@ -1,0 +1,31 @@
+<htmnl>
+<head>
+	<title>patatap clone</title>
+	<script type="text/javascript" src="C:\Users\shikh\Desktop\paper-full.js">
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.13/howler.core.min.js">
+	</script>
+	<link rel="stylesheet" type="text/css" href="circles.css">
+	<script type="text/paperscript" canvas="Mycanvas">
+		var circles=[];
+		function onKeyDown(event){
+		var maxpoint= new Point(view.size.width, view.size.height);
+		var randompoint= Point.random();
+		var point= maxpoint*randompoint;
+		var newpoint= new Path.Circle(point,500);
+		newpoint.fillColor="RED";
+		circles.push(newpoint);
+	    }
+	    function onFrame(event){
+		for(var i=0;i< circles.length;i++){
+		circles[i].fillColor.hue+=1;
+		circles[i].scale(.9);
+	}
+}
+	</script>
+</head>
+<body>
+	<canvas id="Mycanvas" resize>
+</canvas>
+	</body>
+</html>
